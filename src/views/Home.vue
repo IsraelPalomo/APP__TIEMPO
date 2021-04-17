@@ -153,7 +153,7 @@ i {
 	text-align: center;
 	justify-content: center;
 	margin-top: 3rem;
-	padding-bottom: 3rem;
+	padding-bottom: 5rem;
 }
 
 .navegacion h3 {
