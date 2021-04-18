@@ -3,29 +3,97 @@
 		<main>
 			<nav>
 				<div class="navegacion">
-					<h3>Madrid</h3>
+					<h3>{{ nombre }}</h3>
 				</div>
 
-				<form>
-					<input type="text" placeholder="Buscar Tu Ciudad" />
+				<form @submit.prevent="callTiempo()">
+					<input type="text" placeholder="Buscar Tu Ciudad" v-model="nombre" />
 					<button type="submit">Mira El Tiempo</button>
 				</form>
 				<hr />
 			</nav>
 
-			<h2>LLUVIAS</h2>
+			<h2>{{ pronostico.toUpperCase() }}</h2>
 
 			<div class="principal">
-				<img src="../assets/nublado.png" alt="" />
-				<h1>7ºC</h1>
+				<img v-if="imagen.id === 800" src="..\assets\png\023-sun.png" alt="logo" />
+				<img v-if="imagen.id === 201" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 202" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 210" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 211" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 212" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 221" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 230" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 231" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 232" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 200" src="..\assets\png\028-storm-1.png" alt="logo" />
+
+				<img v-if="imagen.id === 300" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 301" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 302" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 310" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 311" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 312" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 313" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 314" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 321" src="..\assets\png\022-rain.png" alt="logo" />
+
+				<img v-if="imagen.id === 500" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 501" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 502" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 503" src="..\assets\png\028-storm-1.png" alt="logo" />
+				<img v-if="imagen.id === 504" src="..\assets\png\028-storm-1.png" alt="logo" />
+
+				<img v-if="imagen.id === 511" src="..\assets\png\037-thermometer.png" alt="logo" />
+
+				<img v-if="imagen.id === 520" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 521" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 522" src="..\assets\png\022-rain.png" alt="logo" />
+				<img v-if="imagen.id === 531" src="..\assets\png\022-rain.png" alt="logo" />
+
+				<img v-if="imagen.id === 600" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 601" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 602" src="..\assets\png\029-hail.png" alt="logo" />
+				ç<img v-if="imagen.id === 611" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 612" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 613" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 615" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 616" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 620" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 621" src="..\assets\png\029-hail.png" alt="logo" />
+				<img v-if="imagen.id === 622" src="..\assets\png\029-hail.png" alt="logo" />
+
+				<img v-if="imagen.id === 701" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 711" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 721" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 731" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 741" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 751" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 761" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 762" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 771" src="..\assets\png\021-fog.png" alt="logo" />
+				<img v-if="imagen.id === 781" src="..\assets\png\021-fog.png" alt="logo" />
+
+				<img v-if="imagen.id === 801" src="..\assets\png\050-cloudy-1.png" alt="logo" />
+				<img v-if="imagen.id === 802" src="..\assets\png\050-cloudy-1.png" alt="logo" />
+				<img v-if="imagen.id === 803" src="..\assets\png\050-cloudy-1.png" alt="logo" />
+				<img v-if="imagen.id === 804" src="..\assets\png\050-cloudy-1.png" alt="logo" />
+
+				<h1>{{ temperatura }}ºC</h1>
 			</div>
 			<div class="mas-info">
 				<div class="info">
-					<i class="fas fa-wind"> 4k</i>
+					<i class="fas fa-wind"> {{ " " + viento }} KM/H</i>
 				</div>
-				<div class="info"><i class="far fa-snowflake"> 4k</i></div>
-				<div class="info"><i class="fas fa-temperature-high"> 4k</i></div>
-				<div class="info"><i class="fas fa-tint"> 4k</i></div>
+				<div class="info">
+					<i class="far fa-snowflake"> {{ " " + temperatura_min }}ºC</i>
+				</div>
+				<div class="info">
+					<i class="fas fa-temperature-high">{{ " " + temperatura_max }}ºC</i>
+				</div>
+				<div class="info">
+					<i class="fas fa-tint">{{ " " + lluvia }} %</i>
+				</div>
 			</div>
 			<hr />
 			<div class="calendario">
@@ -50,7 +118,39 @@
 
 export default {
 	name: "Home",
+	data() {
+		return {
+			nombre: "Madrid",
+			pronostico: "",
+			temperatura: "",
+			viento: "",
+			temperatura_min: "",
+			temperatura_max: "",
+			lluvia: "",
+			imagen: "",
+		};
+	},
 	components: {},
+	methods: {
+		async callTiempo() {
+			const res = await fetch(
+				`http://api.openweathermap.org/data/2.5/weather?q=${this.nombre}&appid=6cd01d16690d7cf5421a4f285c854c5d&lang=es`
+			);
+			const data = await res.json();
+			this.nombre = data.name;
+			this.pronostico = data.weather[0].description;
+			this.temperatura = Math.floor(data.main.temp - 273.15);
+			this.viento = data.wind.speed;
+			this.temperatura_min = Math.floor(data.main.temp_min - 273.15);
+			this.temperatura_max = Math.floor(data.main.temp_max - 273.15);
+			this.lluvia = data.main.humidity;
+			this.imagen = data.weather[0];
+			console.log(data);
+		},
+	},
+	created() {
+		this.callTiempo();
+	},
 };
 </script>
 <style>
