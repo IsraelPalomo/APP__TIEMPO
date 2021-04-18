@@ -147,9 +147,17 @@ export default {
 			this.imagen = data.weather[0];
 			console.log(data);
 		},
+		async callDias() {
+			const res = await fetch(
+				"http://api.openweathermap.org/data/2.5/forecast?q=madrid&appid=4f99f2cab90608915fdecfc3d2399794&lang=es"
+			);
+			const data = await res.json();
+			console.log(data);
+		},
 	},
 	created() {
 		this.callTiempo();
+		this.callDias();
 	},
 };
 </script>
